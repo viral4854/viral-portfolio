@@ -1,0 +1,12 @@
+export const metadata = {
+  title: "Viral Dedaniya — Portfolio",
+  description: "Full Stack Developer — Viral Dedaniya",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className="antialiased">{children}</body>
+    </html>
+  );
+}
