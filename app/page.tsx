@@ -115,7 +115,7 @@ const DATA = {
       "Data Structures & Algorithms",
     ],
   },
-} as const;
+};
 
 const Container = ({ children, className = "" }: any) => (
   <div className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>{children}</div>
