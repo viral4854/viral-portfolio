@@ -64,41 +64,41 @@ const DATA = {
       start: "Oct 2022",
       end: "Oct 2022",
       points: [
-        "Built secure e‑commerce site with auth and payment integration.",
+        "Built secure e-commerce site with auth and payment integration.",
         "Deployed responsive catalog for 1,500+ products and improved SEO.",
       ],
-      tech: ["E‑commerce", "Auth", "Payments", "SEO"],
+      tech: ["E-commerce", "Auth", "Payments", "SEO"],
     },
   ],
   projects: [
     {
       name: "MeetHim — AI Virtual Meeting Assistant",
+      image: "/projects/meethim.png",
       summary:
-        "One‑on‑one AI sessions on any topic with transcripts and post‑meeting chat support.",
+        "One-on-one AI sessions on any topic with transcripts and post-meeting chat support.",
       impact:
-        "4‑step flow: topic selection → AI interaction → transcript delivery → continuous chat support.",
+        "4-step flow: topic selection → AI interaction → transcript delivery → continuous chat support.",
       tech: ["React", "Node.js", "NLP/AI APIs"],
-      code: "#",
-      demo: "#",
+      code: "#"
     },
     {
-      name: "Byte Warriors — 2‑Player Fighting Game",
+      name: "Byte Warriors — 2-Player Fighting Game",
+      image: "/projects/byte-warriors.png",
       summary:
-        "Physics‑based 2D fighter with frame‑perfect collisions and smooth animations.",
+        "Physics-based 2D fighter with frame-perfect collisions and smooth animations.",
       impact:
         "60 FPS across modern browsers; modular architecture for new characters & multiplayer.",
       tech: ["JavaScript", "HTML Canvas"],
-      code: "#",
-      demo: "#",
+      code: "#"
     },
     {
-      name: "1StopStore — E‑Commerce Platform",
+      name: "1StopStore — E-Commerce Platform",
+      image: "/projects/1stopstore.png",
       summary:
-        "Scalable full‑stack e‑commerce with PayPal, JWT auth, and dynamic product management.",
+        "Scalable full-stack e-commerce with PayPal, JWT auth, and dynamic product management.",
       impact: "Dockerized deploy on AWS EC2; staging uptime ~99.9%.",
       tech: ["Django", "PayPal API", "JWT", "AWS", "Docker"],
-      code: "#",
-      demo: "#",
+      code: "#"
     },
   ],
   education: {
@@ -216,20 +216,25 @@ const Skills = () => (
 );
 
 const Projects = () => (
-  <Section id="projects" title="Featured Projects" subtitle="Recent work demonstrating full‑stack capability.">
+  <Section id="projects" title="Featured Projects" subtitle="Recent work demonstrating full-stack capability.">
     <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
       {DATA.projects.map((p, idx) => (
         <Card key={idx}>
-          <div className="h-28 w-full rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 mb-4" />
+          {/* Screenshot instead of gradient block */}
+          <img
+            src={p.image}
+            alt={p.name}
+            className="h-40 md:h-44 w-full rounded-xl object-cover mb-4"
+          />
           <h3 className="text-lg font-semibold">{p.name}</h3>
           <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">{p.summary}</p>
           {p.impact && <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">{p.impact}</p>}
           <div className="mt-3 flex flex-wrap gap-2">
             {p.tech.map((t) => <Badge key={t}>{t}</Badge>)}
           </div>
+          {/* Hide Demo; keep Code */}
           <div className="mt-4 flex gap-2">
             <a href={p.code} className="px-3 py-1.5 text-sm rounded-xl border">Code</a>
-            <a href={p.demo} className="px-3 py-1.5 text-sm rounded-xl border bg-blue-600 text-white hover:bg-blue-700">Demo</a>
           </div>
         </Card>
       ))}
